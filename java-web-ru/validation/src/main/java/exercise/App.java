@@ -37,23 +37,23 @@ public final class App {
         });
 
         app.post("/articles", ctx -> {
-           try {
-               var name = ctx.formParamAsClass("articleName", String.class)
-                       .check(value -> value.length() > 2, "Название не должно быть короче двух символов")
-                       .check(value -> ArticleRepository.search(value).isEmpty(), "Статья с таким названием уже существует")
-                       .get();
-               var content = ctx.formParamAsClass("articleContent", String.class)
-                       .check(value -> value.length() > 10, "Статья должна быть не короче 10 символов")
-                       .get();
-               var article = new Article(name, content);
-               ArticleRepository.save(article);
-               ctx.redirect("/articles");
-           } catch (ValidationException e) {
-               var name = ctx.formParam("name");
-               var content = ctx.formParam("content");
-               var page = new BuildArticlePage(name, content, e.getErrors());
-               ctx.render("articles/build.jte", model("page", page)).status(422);
-           }
+            try {
+                var name = ctx.formParamAsClass("articleName", String.class)
+                        .check(value -> value.length() > 2, "Название не должно быть короче двух символов")
+                        .check(value -> ArticleRepository.search(value).isEmpty(), "Статья с таким названием уже существует")
+                        .get();
+                var content = ctx.formParamAsClass("articleContent", String.class)
+                        .check(value -> value.length() > 10, "Статья должна быть не короче 10 символов")
+                        .get();
+                var article = new Article(name, content);
+                ArticleRepository.save(article);
+                ctx.redirect("/articles");
+            } catch (ValidationException e) {
+                var name = ctx.formParam("name");
+                var content = ctx.formParam("content");
+                var page = new BuildArticlePage(name, content, e.getErrors());
+                ctx.render("articles/build.jte", model("page", page)).status(422);
+            }
         });
         // END
 
