@@ -9,7 +9,7 @@ import exercise.dto.articles.BuildArticlePage;
 import static io.javalin.rendering.template.TemplateUtil.model;
 import io.javalin.rendering.template.JavalinJte;
 
-import exercise.repository.ArticleRepository;
+import exercise.repository.Repository;
 
 public final class App {
 
@@ -25,7 +25,7 @@ public final class App {
         });
 
         app.get("/articles", ctx -> {
-            List<Article> articles = ArticleRepository.getEntities();
+            List<Article> articles = Repository.getEntities();
             var page = new ArticlesPage(articles);
             ctx.render("articles/index.jte", model("page", page));
         });
@@ -40,7 +40,7 @@ public final class App {
             try {
                 var name = ctx.formParamAsClass("articleName", String.class)
                         .check(value -> value.length() > 2, "Название не должно быть короче двух символов")
-                        .check(value -> ArticleRepository.search(value).isEmpty(), "Статья с таким названием уже существует")
+                        .check(value -> Repository.search(value).isEmpty(), "Статья с таким названием уже существует")
                         .get();
                 var content = ctx.formParamAsClass("articleContent", String.class)
                         .check(value -> value.length() > 10, "Статья должна быть не короче 10 символов")
