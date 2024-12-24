@@ -20,7 +20,7 @@ content = @`
             <div class="mb-3">
                 <label class="form-label">
                     Название
-                    <input type="text" class="form-control" name="title" value="${page.getName()}" />
+                    <input type="text" class="form-control" name="title" value="${page.getTitle()}" />
                 </label>
             </div>
             <div class="mb-3">

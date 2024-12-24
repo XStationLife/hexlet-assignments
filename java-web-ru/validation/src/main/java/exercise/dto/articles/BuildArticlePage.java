@@ -14,7 +14,7 @@ import lombok.Getter;
 @Getter
 
 public class BuildArticlePage {
-    private String name;
+    private String title;
     private String content;
     private Map<String, List<ValidationError<Object>>> errors;
 }
