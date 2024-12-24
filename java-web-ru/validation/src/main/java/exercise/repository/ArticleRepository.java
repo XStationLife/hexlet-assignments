@@ -6,7 +6,7 @@ import java.util.Optional;
 
 import exercise.model.Article;
 
-public class Repository {
+public class ArticleRepository {
     private static List<Article> entities = new ArrayList<Article>();
 
     public static void save(Article article) {
