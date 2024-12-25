@@ -7,7 +7,7 @@ public class NamedRoutes {
     }
 
     // BEGIN
-    public static String postsPath {
+    public static String postsPath() {
         return "/posts";
     }
 
