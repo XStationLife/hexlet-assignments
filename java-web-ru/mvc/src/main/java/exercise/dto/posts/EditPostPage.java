@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 
 // BEGIN
 @AllArgsConstructor
-@Getter
 @NoArgsConstructor
+@Getter
 
 public class EditPostPage {
     private long id;
