@@ -10,8 +10,6 @@ import exercise.dto.users.UserPage;
 import io.javalin.http.NotFoundResponse;
 import io.javalin.http.Context;
 
-import java.util.logging.Logger;
-
 
 public class UsersController {
 
