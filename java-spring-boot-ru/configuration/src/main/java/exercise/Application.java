@@ -32,7 +32,7 @@ public class Application {
                 .filter(u -> adminEmails.contains(u.getEmail()))
                 .map(u -> u.getName())
                 .sorted()
-                .tiList();
+                .toList();
     }
     // END
 
