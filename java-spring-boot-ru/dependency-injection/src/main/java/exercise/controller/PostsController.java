@@ -35,6 +35,11 @@ public class PostsController {
         return postRepository.save(post);
     }
 
+    @GetMapping(path = "")
+    public List<Post> index() {
+        return postRepository.findAll();
+    }
+
     @GetMapping(path = "/{id}")
     public Post show(@PathVariable long id) {
 

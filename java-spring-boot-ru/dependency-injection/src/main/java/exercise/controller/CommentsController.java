@@ -38,11 +38,10 @@ public class CommentsController {
     }
 
     @GetMapping(path = "/{id}")
-    public Comment show (@PathVariable long id) {
+    public Comment show(@PathVariable long id) {
 
         var comment = commentRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Comment with id " + id + " not found"));
-
         return comment;
     }
 
