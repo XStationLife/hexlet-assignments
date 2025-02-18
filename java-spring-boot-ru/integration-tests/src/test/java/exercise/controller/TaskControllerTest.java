@@ -87,7 +87,7 @@ class TaskControllerTest {
 
         assertThat(task).isNotNull();
         assertThat(task.getTitle()).isEqualTo(data.getTitle());
-        assertThat(task.getDescription()).isEqualTo(data.Description());
+        assertThat(task.getDescription()).isEqualTo(data.getDescription());
     }
 
     @Test
