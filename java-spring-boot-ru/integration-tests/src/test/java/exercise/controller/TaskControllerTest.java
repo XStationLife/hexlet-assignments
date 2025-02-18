@@ -105,7 +105,7 @@ class TaskControllerTest {
         mockMvc.perform(request)
                 .andExpect(status().isOk());
 
-        task = taskRepository.findById(task.getId().get());
+        task = taskRepository.findById(task.getId()).get();
 
         assertThat(task.getTitle()).isEqualTo(data.get("title"));
     }
