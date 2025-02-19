@@ -2,8 +2,10 @@ package exercise.controller;
 
 import exercise.repository.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
@@ -29,7 +31,7 @@ public class PostsController {
     public List<PostDTO> index() {
         var users = postRepository.findAll();
         var result = users.stream()
-                .map(this::toDTO)
+                .map(this::toPostDTO)
                 .toList();
         return result;
     }
